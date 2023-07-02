@@ -28,7 +28,7 @@ body {
 
 body {
   background-color: hsl(0, 0%, 94%);
-  height: 110vh;
+  height: 106vh;
   display: grid;
   place-items: center;
   font-family: "Poppins", sans-serif;

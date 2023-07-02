@@ -208,7 +208,7 @@ const Input = styled.div`
     font-size: 2rem;
     letter-spacing: 1%;
     font-weight: 700;
-
+    padding: 12px 24px;
     border: 1px solid ${(p) => (p.valid ? COLORS.lightGrey : COLORS.lightRed)};
     border-radius: 8px;
   }

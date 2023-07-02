@@ -66,25 +66,26 @@ export default function MainCard() {
       }));
     }
 
-    if (!testCombination(birth)) {
-      setValid((cur) => ({
-        ...cur,
-        day: { valid: false, message: "Must be a valid date" },
-        month: { valid: false, message: "Must be a valid month" },
-      }));
-    }
-
     if (
       !testMonth(birth.month) ||
       !testDay(birth.day) ||
       !testYear(birth.year) ||
       !birth.day ||
       !birth.month ||
-      !birth.year ||
-      !testCombination(birth)
+      !birth.year
     ) {
       return;
     }
+
+    if (!testCombination(birth)) {
+      setValid((cur) => ({
+        ...cur,
+        day: { valid: false, message: "Must be a valid date" },
+        month: { valid: false, message: "Must be a valid month" },
+      }));
+      return;
+    }
+
     //   set all to valid if pass all test
     setValid((cur) => ({
       ...cur,

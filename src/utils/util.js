@@ -78,6 +78,11 @@ export function testCombination({ year, month, day }) {
   let numMonth = Number(month);
   let numDay = Number(day);
 
+  let currentDate = new Date();
+  let userDate = new Date(numYear, numMonth, numDay);
+
+  if (userDate - currentDate > 0) return false;
+
   // Special case for February
   if (numMonth === 2) {
     if (

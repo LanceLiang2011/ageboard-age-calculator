@@ -70,6 +70,7 @@ export default function MainCard() {
       setValid((cur) => ({
         ...cur,
         day: { valid: false, message: "Must be a valid date" },
+        month: { valid: false, message: "Must be a valid month" },
       }));
     }
 

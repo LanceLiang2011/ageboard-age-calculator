@@ -202,13 +202,14 @@ const Input = styled.div`
     font-weight: 700;
     color: ${(p) => (p.valid ? COLORS.smokeyGrey : COLORS.lightRed)};
     text-transform: uppercase;
+    letter-spacing: 25%;
   }
 
   input {
     font-size: 2rem;
     letter-spacing: 1%;
     font-weight: 700;
-    padding: 12px 24px;
+    padding: 14px 24px;
     border: 1px solid ${(p) => (p.valid ? COLORS.lightGrey : COLORS.lightRed)};
     border-radius: 8px;
   }

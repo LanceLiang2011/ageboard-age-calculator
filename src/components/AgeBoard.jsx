@@ -27,7 +27,7 @@ const Wrapper = styled.div`
   font-style: italic;
   line-height: 110%;
   letter-spacing: -2%;
-  margin-top: 32px;
+  margin-top: 36px;
   @media (max-width: 850px) {
     font-size: 3.5rem;
     margin-top: 48px;

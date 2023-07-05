@@ -9,25 +9,15 @@ export const COLORS = {
 };
 
 function dateDiff(date1, date2) {
-  let years, months, days;
+  let diffInSeconds = Math.abs(date2.getTime() - date1.getTime()) / 1000;
 
-  // Calculate difference in years
-  years = date2.getFullYear() - date1.getFullYear();
+  const years = Math.floor(diffInSeconds / 31536000);
+  diffInSeconds -= years * 31536000;
 
-  // Calculate difference in months
-  months = date2.getMonth() - date1.getMonth();
-  if (months < 0) {
-    years--; // Borrow from years if it's negative
-    months += 12; // Adding 12 because there are 12 months in a year
-  }
+  const months = Math.floor(diffInSeconds / 2592000);
+  diffInSeconds -= months * 2592000;
 
-  // Calculate difference in days
-  days = date2.getDate() - date1.getDate();
-  if (days < 0) {
-    months--; // Borrow from months if it's negative
-    let newDate = new Date(date2.getFullYear(), date2.getMonth(), 0); // Get the last day of previous month
-    days += newDate.getDate(); // Adding because days are negative
-  }
+  const days = Math.floor(diffInSeconds / 86400);
 
   return { years, months, days };
 }
@@ -37,7 +27,7 @@ export function calcAgeByBirth(birth) {
   const month = parseInt(birth.month);
   const day = parseInt(birth.day);
   const todate = new Date();
-  const birthDate = new Date(year, month, day);
+  const birthDate = new Date(year, month - 1, day);
 
   return dateDiff(birthDate, todate);
 }
@@ -79,7 +69,7 @@ export function testCombination({ year, month, day }) {
   let numDay = Number(day);
 
   let currentDate = new Date();
-  let userDate = new Date(numYear, numMonth, numDay);
+  let userDate = new Date(numYear, numMonth - 1, numDay);
 
   if (userDate - currentDate > 0) return false;
 
